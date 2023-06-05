@@ -16,7 +16,7 @@ PLOTTERS = "PLOTTERS"
 COLOR_TRANSFORM = "COLOR_TRANSFORM"
 OPERATORS = "OPERATORS"
 WINDOW_SIZE = [1920,1080]
-OCIO_PATH = "colormanagement/configV2.ocio"
+OCIO_PATH = "colormanagement/config.ocio"
 OCIO_CONFIG = OCIO.Config.CreateFromFile(OCIO_PATH)
 
 

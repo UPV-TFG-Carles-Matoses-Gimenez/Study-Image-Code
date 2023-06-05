@@ -56,27 +56,11 @@ with dpg.viewport_menu_bar():
 
     dpg.add_menu_item(label="Help", callback=None)
 
-# cool_time = 0
-# current_time = time.time()
-# last_frame_time = 0
+
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
-# while dpg.is_dearpygui_running():
-#     current_time = time.time()
-#     if not COOLDOWN:
-#         if cool_time >.5:
-#             interaction.COOLDOWN = True
-#             cool_time = 0
-#             print("refresh cooldown")
-#         else:
-#             cool_time += last_frame_time
-#     last_frame_time = time.time()-current_time
-#     print(cool_time)
-    
-#     # insert here any code you would like to run in the render loop
-#     # you can manually stop by using stop_dearpygui()
-#     dpg.render_dearpygui_frame()
+
 
 dpg.destroy_context()
 
