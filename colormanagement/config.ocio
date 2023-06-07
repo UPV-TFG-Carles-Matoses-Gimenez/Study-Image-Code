@@ -190,7 +190,21 @@ colorspaces:
             - !<FileTransform> {src: OpenDRT.spi3d, interpolation: best}
             - !<ColorSpaceTransform> {src: Linear REC2020, dst: sRGB}       
   
-
+  - !<ColorSpace>
+    name: OpenDRT REC2020 Linear
+    family:
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Neutral filmic curve
+    isdata: false
+    from_reference: !<GroupTransform>
+        children:
+            - !<ColorSpaceTransform> {src: XYZ, dst: Linear REC2020}            
+            - !<AllocationTransform> {allocation: lg2, vars: [-12.473931188, 12.539267881710824]}
+            - !<FileTransform> {src: OpenDRT.spi3d, interpolation: best}
+             
+  
 
   ##### ACES #####
 
