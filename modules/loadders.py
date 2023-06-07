@@ -16,8 +16,6 @@ print("importing loadders module")
 
 #####################################################
 #####################################################
-
-from PIL import Image
 import pyroexr
 
 def open_exr_func(path):
@@ -142,7 +140,6 @@ class Load_Image(NodeV2):
 
 #####################################################
 #####################################################
-import rawpy
 
 def load_image_raw(path,*args):
     print("child refresh")
@@ -293,7 +290,7 @@ def QuadImageGenerator(color_space, length, gradient, cube_size, increment):
         img.append( np.array(list(zip(color,negro,color*decrementer[i]))).reshape(1,length,3)[0])
 
     img = np.array(img,dtype=np.float32)
-    processor = OCIO_CONFIG.getProcessor(color_space, OCIO.ROLE_DEFAULT)
+    processor = OCIO_CONFIG.getProcessor(color_space, OCIO.ROLE_SCENE_LINEAR)
     cpu = processor.getDefaultCPUProcessor()
     cpu.applyRGB(img)
 
