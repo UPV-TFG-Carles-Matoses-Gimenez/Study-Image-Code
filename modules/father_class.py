@@ -73,7 +73,7 @@ class NodeV2:
         self.node_info()
 
 
-    def debug(self):
+    def debug(self,*args):
         print("\n")
         print(f"Node: {self.nodeID}")
         print(f"connections_forward {self.connections_forward}")
