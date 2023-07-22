@@ -152,15 +152,20 @@ class NodeV2:
                             case "slider":
                                 dpg.add_slider_double(callback=self.node_modified,**_inp_dict_dict_val)
                             case "color":
-                                dpg.add_text(label="not implemented",**_inp_dict_dict_val)
+                                dpg.add_text(label="not implemented",callback=self.node_modified,**_inp_dict_dict_val)
                             case "value":
                                 dpg.add_input_double(callback=self.node_modified,**_inp_dict_dict_val)
                             case "float":
                                 dpg.add_input_double(callback=self.node_modified,**_inp_dict_dict_val)
                             case "integer":
                                 dpg.add_input_int(callback=self.node_modified,**_inp_dict_dict_val)
-
-
+                            case "text":
+                                dpg.add_input_text(callback=self.node_modified,**_inp_dict_dict_val)
+                            case "none":
+                                dpg.add_text()
+                            case "button":
+                                dpg.add_button(**_inp_dict_dict_val)
+                                
             self.inputs.append(inp)
 
 
