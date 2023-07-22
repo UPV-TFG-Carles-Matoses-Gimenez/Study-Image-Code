@@ -352,7 +352,7 @@ def find_rectangular_matrix_dimensions(n):
     rows = np.ceil(np.sqrt(n))
     cols = np.ceil(n / rows)
     
-    return int(rows), int(cols)
+    return int(cols), int(rows), 
     
 
 def create_image_from_cube(cube):
@@ -375,7 +375,8 @@ def create_image_from_cube(cube):
                 x_range= i*shape[0], i*shape[0]+shape[0]
                 y_range= j*shape[1], j*shape[1]+shape[1]
                 new_matrix[ x_range[0]:x_range[1] , y_range[0]:y_range[1] ] = cube[:,:,point-1,:]
-                
+    new_matrix = new_matrix[..., [1, 0, 2]]
+
     return new_matrix
 
 
@@ -404,6 +405,7 @@ class Spi3D(NodeV2):
             width=200,
             default_value=list(self.methods.keys())[0])
         self.val_id = []
+
     def custom_input(self,str,parent_id,callback):
         for i in self.val_id:
             dpg.delete_item(i)

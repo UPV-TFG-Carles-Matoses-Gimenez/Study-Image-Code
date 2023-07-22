@@ -14,7 +14,7 @@ def find_rectangular_matrix_dimensions(n):
     rows = np.ceil(np.sqrt(n))
     cols = np.ceil(n / rows)
     
-    return int(rows), int(cols)
+    return int(cols), int(rows), 
     
 
 def create_image_from_cube(cube):
@@ -34,15 +34,10 @@ def create_image_from_cube(cube):
         for j in range(new_dims[1]):
             point+=1
             if point <= shape[2]:
-                print(i,j)
-
                 x_range= i*shape[0], i*shape[0]+shape[0]
                 y_range= j*shape[1], j*shape[1]+shape[1]
-                print(x_range)
-                print(y_range)
-                # print(cube[:,:,i,:])
                 new_matrix[ x_range[0]:x_range[1] , y_range[0]:y_range[1] ] = cube[:,:,point-1,:]
-                
+    new_matrix = new_matrix[..., [1, 0, 2]]
 
     return new_matrix
 
