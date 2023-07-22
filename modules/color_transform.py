@@ -970,7 +970,7 @@ class Export_LUT(NodeV2):
     def __init__(self):
         f = print
         inp_list = {"LUT":{"none":{}},"path":{"text":{"width":220,"height":60}}}
-        out_list = ["img"]
+        out_list = []
         super().__init__(f, inp_list, out_list, self.Title)
 
         dpg.add_button(label="Export",
