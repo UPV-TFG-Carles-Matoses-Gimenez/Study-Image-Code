@@ -5,7 +5,7 @@ import numpy as np
 #####################################################
 #####################################################
 def exposition(val1,val2,*argss):
-    return [val1**val2]
+    return [val1*val2]
 
 class Exposition(NodeV2):
     Title = "Exposition"

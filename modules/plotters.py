@@ -41,7 +41,7 @@ def display_fun(img, display, view):
     global OCIO_CONFIG
 
     img = img.astype(np.float32)
-    processor = OCIO_CONFIG.getProcessor(OCIO.ROLE_SCENE_LINEAR, display, view, OCIO.TRANSFORM_DIR_FORWARD)
+    processor = OCIO_CONFIG.getProcessor(OCIO.ROLE_REFERENCE, display, view, OCIO.TRANSFORM_DIR_FORWARD)
     cpu = processor.getDefaultCPUProcessor()
     cpu.applyRGB(img)
     

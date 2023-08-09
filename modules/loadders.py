@@ -65,7 +65,7 @@ def load_image(path,space_input="sRGB", *args):
         # Gamma
         # Primaries
         
-        processor = OCIO_CONFIG.getProcessor(space_input,OCIO.ROLE_SCENE_LINEAR)
+        processor = OCIO_CONFIG.getProcessor(space_input,OCIO.ROLE_REFERENCE)
         cpu = processor.getDefaultCPUProcessor()
         cpu.applyRGB(img)
         img = np.array(img,dtype=np.float16)

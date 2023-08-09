@@ -18,7 +18,7 @@ luma: [0.2126, 0.7152, 0.0722]
 description: Experimento de renderizado customizado
 
 roles:
-  reference: Linear REC2020
+  reference: XYZ
   scene_linear: Linear REC2020
   rendering: Linear REC2020
   default_byte: sRGB
@@ -51,7 +51,7 @@ displays:
     - !<View> {name: Filmic Very Low Contrast, colorspace: Filmic, look: Very Low Contrast}
     
     - !<View> {name: AgX Base, colorspace: AgX Base}
-    - !<View> {name: Open DRT, colorspace: OpenDRT to sRGB}
+    - !<View> {name: Open DRT, colorspace: OpenDRT REC2020 - sRGB}
   XYZ:
     - !<View> {name: XYZ, colorspace: XYZ}
     - !<View> {name: Raw, colorspace: Non-Color}
@@ -179,7 +179,7 @@ colorspaces:
 
 
   - !<ColorSpace>
-    name: OpenDRT to sRGB
+    name: OpenDRT REC2020 - sRGB
     family:
     equalitygroup:
     bitdepth: 32f

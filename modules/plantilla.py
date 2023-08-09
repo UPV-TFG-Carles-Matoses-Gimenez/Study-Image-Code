@@ -27,27 +27,29 @@ class Exposition(NodeV2):
 #####################################################
 #####################################################
 
-def temporal(img,*argss):
-    return [val1**val2]
+def plantilla(img,*argss):
+    return img,
 
-class Temporal(NodeV2):
-    Title = "Temporal"
+class Plantilla(NodeV2):
+    Title = "Plantilla"
     def __init__(self):
-        f = exposition
-        inp_list = {"val":{"slider":{"width":120}},"img":{"value":{"width":120,"format": '%.8f'}}}
-        out_list = ["val"]
+        f = plantilla
+        inp_list = {"slider" :{"slider":{"width":120}},
+                    "value"  :{"value":{"width":120,"format": '%.8f'}}}
+        out_list = ["out1", "out2"]
         super().__init__(f, inp_list, out_list, self.Title)
 
-        dpg.add_text("Static example",parent=self.static)
+        self.custom_inp = dpg.add_text("Static example",parent=self.static)
 
     def recollect_inputs_frombackawrd_nodes(self):
         inp = super().recollect_inputs_frombackawrd_nodes()
-        # inp.append(dpg.get_value(self.type))
+        inp.append(dpg.get_value(self.custom_inp))
         return inp
     
     def custom_node_info(self):
         super().custom_node_info()
         dpg.add_text("Custom node info")
+
 #####################################################
 #####################################################
 
@@ -63,7 +65,7 @@ with dpg.menu(label=menu, tag=menu, parent=NODE_WINDOW_MENU):
 
 register_list = [
     Exposition,
-    Temporal,
+    Plantilla,
     ]
 for node in register_list:
     register(node, menu)
