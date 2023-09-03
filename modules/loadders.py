@@ -290,7 +290,7 @@ def QuadImageGenerator(color_space, length, gradient, cube_size, increment):
         img.append( np.array(list(zip(color,negro,color*decrementer[i]))).reshape(1,length,3)[0])
 
     img = np.array(img,dtype=np.float32)
-    processor = OCIO_CONFIG.getProcessor(color_space, OCIO.ROLE_SCENE_LINEAR)
+    processor = OCIO_CONFIG.getProcessor(color_space, OCIO.ROLE_REFERENCE)
     cpu = processor.getDefaultCPUProcessor()
     cpu.applyRGB(img)
 
@@ -331,9 +331,9 @@ class Quad_Image(NodeV2):
     def custom_node_info(self):
         super().custom_node_info()
         
-        self.length =    dpg.add_input_int(label  = "length",callback=self.node_modified,default_value=20)
-        self.gradient =  dpg.add_input_int(label  = "gradient",callback=self.node_modified,default_value=2)
-        self.cube_size = dpg.add_input_int(label  = "cube_size",callback=self.node_modified,default_value=3)
+        self.length =    dpg.add_input_int(label   = "length",callback=self.node_modified,default_value=20)
+        self.gradient =  dpg.add_input_int(label   = "gradient",callback=self.node_modified,default_value=2)
+        self.cube_size = dpg.add_input_int(label   = "cube_size",callback=self.node_modified,default_value=3)
         self.increment = dpg.add_input_float(label = "increment",callback=self.node_modified,default_value=2)
 
 #####################################################
